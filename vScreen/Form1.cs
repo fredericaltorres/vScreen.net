@@ -217,7 +217,17 @@ namespace vScreen {
 
         private void tmrBkTask_Tick(object sender, EventArgs e) {
 
-            this._currentWindowHandle = vScreen.lib.WinApi.GetForegroundWindow();
+            var h = vScreen.lib.WinApi.GetForegroundWindow();
+
+            if(h == this.Handle) {
+
+                this._currentWindowHandle = IntPtr.Zero;
+            }
+            else {
+
+                this._currentWindowHandle = h;
+            }
+
             this._tmrBackground2SecondCounter++;
 
             if(_showAllScreenForm) {
@@ -231,12 +241,19 @@ namespace vScreen {
             if(this._tmrBackground2SecondCounter >= 2) {
 
                 this._tmrBackground2SecondCounter = 0;
-                var w                             =  new vScreen.lib.Window(this._currentWindowHandle);
 
-                if(!vScreen.lib.Screen.WindowShouldBeIgnored(w.Title, w.ClassName)) {
+                if( this._currentWindowHandle == IntPtr.Zero) {
+                 
+                    this.lblCurrentApp.Tag            = null;
+                    this.lblCurrentApp.Text           = null;
+                }
+                else {
+                    var w  =  new vScreen.lib.Window(this._currentWindowHandle);
+                    if(!vScreen.lib.Screen.WindowShouldBeIgnored(w.Title, w.ClassName)) {
                     
-                    this.lblCurrentApp.Tag            = w;
-                    this.lblCurrentApp.Text           = w.Title;
+                        this.lblCurrentApp.Tag            = w;
+                        this.lblCurrentApp.Text           = w.Title;
+                    }
                 }
             }
         }
