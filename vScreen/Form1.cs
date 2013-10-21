@@ -18,13 +18,13 @@ namespace vScreen {
         const int MAX_SCREEN = 4;
 
         int                          _tmrBackground2SecondCounter = 0;
-        vScreen.lib.ClipboardMonitor _clipboardMonitor = new lib.ClipboardMonitor();
+        vScreen.lib.ClipboardMonitor _clipboardMonitor            = new lib.ClipboardMonitor();
         vScreen.lib.Taskbar          _taskBar;
-        int                          _indexButtonToShowBitmap = -1;
+        int                          _indexButtonToShowBitmap     = -1;
         IntPtr                       _currentWindowHandle;
-        List<Button>                 _buttons = new List<Button>();
-        HotkeyManager               _hotkeyManager;
-        bool                        _showAllScreenForm;
+        List<Button>                 _buttons                     = new List<Button>();
+        HotkeyManager                _hotkeyManager;
+        bool                         _showAllScreenForm;
 
         public vScreen.lib.ScreenManager ScreenManager;
 
@@ -44,9 +44,9 @@ namespace vScreen {
 
             var m = HotKeyModifierKeys.None;
 
-            if(Settings1.Default.HotKeyAlt) m |= HotKeyModifierKeys.Alt;
+            if(Settings1.Default.HotKeyAlt)   m |= HotKeyModifierKeys.Alt;
             if(Settings1.Default.HotKeyShift) m |= HotKeyModifierKeys.Shift;
-            if(Settings1.Default.HotKeyCtrl) m |= HotKeyModifierKeys.Control;
+            if(Settings1.Default.HotKeyCtrl)  m |= HotKeyModifierKeys.Control;
 
             // In case we run for the first time and there is no config save
             if(m == HotKeyModifierKeys.None) m |= HotKeyModifierKeys.Control;
@@ -63,6 +63,7 @@ namespace vScreen {
             base.WndProc(ref m);
 
             if (m.Msg == HotkeyManager.WM_HOTKEY) {
+
                 Keys key = (Keys)(((int)m.LParam >> 16) & 0xFFFF);
                 HotKeyModifierKeys modifier = (HotKeyModifierKeys)((int)m.LParam & 0xFFFF);
                 HotkeyPressed(modifier, key);
@@ -73,12 +74,12 @@ namespace vScreen {
 
             int x = -1;
             switch(key) {
+
                 case Keys.D1 : x = 0; break;
                 case Keys.D2 : x = 1; break;
                 case Keys.D3 : x = 2; break;
                 case Keys.D4 : x = 3; break;
                 case Keys.D0 : _showAllScreenForm = true;  break;
-                    
             }
             if(x != -1)
                 butScreen_Click(_buttons[x], new EventArgs());
@@ -86,7 +87,9 @@ namespace vScreen {
 
         private void frmVScreen_Load(object sender, EventArgs e) {
             
-            this.Text = Application.ProductName;
+            this.Text = "{0}".format(Application.ProductName);
+
+            vScreen.lib.Screen.AddHandleToIgnore(this.Handle);
 
             vScreen.Settings1.Default.Reload();
 
@@ -134,6 +137,7 @@ namespace vScreen {
         }
 
         private void Out(string s) {
+
             System.Diagnostics.Debug.WriteLine(s);
         }
 
@@ -165,7 +169,6 @@ namespace vScreen {
 
             this.ScreenManager.ShowDesktopBitmap(0, this.Top);
         }
-
 
         private void butScreen1_MouseEnter(object sender, EventArgs e) {
             
@@ -211,7 +214,6 @@ namespace vScreen {
                 this.ScreenManager.ShowDesktopBitmap(this._indexButtonToShowBitmap, this.Top);
             }
         }
-
 
         private void tmrBkTask_Tick(object sender, EventArgs e) {
 
@@ -272,7 +274,6 @@ namespace vScreen {
             this.UpdateClipboardButton();
         }
 
-
         private void moveTo1ToolStripMenuItem_Click(object sender, EventArgs e) {
 
             MoveCurrentAppToScreen(0);
@@ -314,7 +315,6 @@ namespace vScreen {
             this._moveToMenuItems.ForEach( a => a.Enabled = true );
             this._moveToMenuItems[this.ScreenManager.ScreenIndex].Enabled = false;
         }
-
 
         private void showAllScreensToolStripMenuItem_Click(object sender, EventArgs e) {
 

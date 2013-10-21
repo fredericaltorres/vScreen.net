@@ -6,7 +6,7 @@
       <Value Profile="(Default)">(Button)</Value>
     </Setting>
     <Setting Name="IgnoreTitleRegEx" Type="System.String" Scope="User">
-      <Value Profile="(Default)">(###vscreen)|(Visual Studio)|(Program Manager)|(vScreen)|(frmDesktopBitmap)</Value>
+      <Value Profile="(Default)">(Microsoft Visual Studio)|(Program Manager)|(frmDesktopBitmap)</Value>
     </Setting>
   </Settings>
 </SettingsFile>

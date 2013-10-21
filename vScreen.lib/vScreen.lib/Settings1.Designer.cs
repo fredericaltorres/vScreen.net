@@ -37,7 +37,7 @@ namespace vScreen.lib {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(###vscreen)|(Visual Studio)|(Program Manager)|(vScreen)|(frmDesktopBitmap)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("(Microsoft Visual Studio)|(Program Manager)|(frmDesktopBitmap)")]
         public string IgnoreTitleRegEx {
             get {
                 return ((string)(this["IgnoreTitleRegEx"]));
