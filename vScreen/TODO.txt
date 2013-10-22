@@ -1,0 +1,6 @@
+﻿
+[Bug]
+- [    ] Some time app cannot be moved to another screen
+- [    ] App moved should be the current active one
+- [Done] c of clipboard should be Uppercase, no need to add a counter
+- [Done] Clipboard history should be ignored as current windows

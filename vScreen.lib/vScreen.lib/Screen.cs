@@ -46,14 +46,16 @@ namespace vScreen.lib {
 
         public bool MoveAppToScreen(IntPtr appHandle, bool hideApp) {
 
+            var r = false;
+            var w = new Window(appHandle);
+
             if(!this.GetHandles().Contains(appHandle)) {
-                var w = new Window(appHandle);
                 this.Add(appHandle, w);
-                if(hideApp)
-                    w.Hide();
-                return true;
+                r = true;
             }
-            return false;
+            if(hideApp)
+                w.Hide();
+            return r;
         }
 
         public string GetLabelText() {

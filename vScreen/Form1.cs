@@ -281,7 +281,8 @@ namespace vScreen {
 
         private void UpdateClipboardButton() {
 
-            butClipBoard.Text = "c{0}".format(this._clipboardMonitor.Snapshots.Count);
+            //butClipBoard.Text = "C{0}".format(this._clipboardMonitor.Snapshots.Count);
+            butClipBoard.Text = "C";
         }
 
         private void butClipBoard_Click(object sender, EventArgs e) {

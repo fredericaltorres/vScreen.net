@@ -22,6 +22,8 @@ namespace vScreen {
 
         public void Open(vScreen.lib.ClipboardMonitor clipboardMonitor) {
 
+            vScreen.lib.Screen.AddHandleToIgnore(this.Handle);
+
             this._clipboardMonitor  = clipboardMonitor; 
             this.textBox.Top        = this.richTextBox.Top;
             this.textBox.Height     = this.richTextBox.Height = (this.Height/4*3);
