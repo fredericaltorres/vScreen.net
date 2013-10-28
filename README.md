@@ -45,6 +45,12 @@ in the settings screens.
 - The clipboard manager store the last 32 text copied in the clipboard, that
 can be selected later.
 
+# Command Line
+- If vScreen.net stop responding, you can force to display all the applications in all
+the screen with the command line
+
+	vScreen.net.exe /restore
+
 # Installation
 vScreen.net.exe is a single executable depending only on .NET 4.0.
 The file vScreen.net.exe.config can be used for more advanced configuration.

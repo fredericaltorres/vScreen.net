@@ -55,6 +55,11 @@ namespace vScreen.lib {
             WinApi.PostMessage(hd, (uint)WinApi.WM.PAINT, IntPtr.Zero, IntPtr.Zero);
         }
 
+        public bool IsValid() {
+
+            return WinApi.IsWindow(this.Handle);
+        }
+
         public void Show() {
 
             WinApi.ShowWindow(this.Handle, WinApi.ShowWindowCommands.Show);

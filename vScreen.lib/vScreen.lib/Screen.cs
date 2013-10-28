@@ -134,6 +134,15 @@ namespace vScreen.lib {
             return buf.ToString();
         }
 
+        public string GetState() {
+
+            var b = new StringBuilder();
+
+            this.Values.ToList().ForEach(s => b.AppendFormat("{0} ", s.Handle));
+          
+            return b.ToString();
+        }
+
         public List<Window> GetWindowByClass(string regexClass) {
 
             var re = new Regex(regexClass);

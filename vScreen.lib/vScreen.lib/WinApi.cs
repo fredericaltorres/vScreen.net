@@ -1043,6 +1043,10 @@ namespace vScreen.lib
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool IsWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool EnableWindow(IntPtr hWnd, bool bEnable);
 
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);

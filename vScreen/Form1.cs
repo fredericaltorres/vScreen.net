@@ -85,8 +85,18 @@ namespace vScreen {
                 butScreen_Click(_buttons[x], new EventArgs());
         }
 
+        private void ExecuteCommandLine() {
+
+            if(Environment.CommandLine.ToLowerInvariant().Contains("/restore")) {
+                vScreen.lib.ScreenManager.RestoreState();
+                Environment.Exit(0);
+            }
+        }
+
         private void frmVScreen_Load(object sender, EventArgs e) {
             
+            this.ExecuteCommandLine();
+
             this.Text = "{0}".format(Application.ProductName);
 
             vScreen.lib.Screen.AddHandleToIgnore(this.Handle);

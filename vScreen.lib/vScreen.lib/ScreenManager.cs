@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace vScreen.lib {
 
         public ScreenManager(int max) {
 
-            for (int i = 0; i < max; i++) {
+            for(int i = 0; i < max; i++) {
 
                 this.Add(new Screen(i, false));
             }
@@ -34,6 +35,7 @@ namespace vScreen.lib {
             this[targeScreenIndex].MoveAppToScreen(appHandle, hideApp);
             if(move && this[currentScreenIndex].ContainsKey(appHandle)) 
                 this[currentScreenIndex].Remove(appHandle);
+            this.SaveState();
         }
 
         public Screen Current {
@@ -44,7 +46,7 @@ namespace vScreen.lib {
 
         public void Close() {
 
-            foreach (var s in this)
+            foreach(var s in this)
                 s.ShowAll();
         }
 
@@ -80,6 +82,42 @@ namespace vScreen.lib {
             this.Current.HideAll(currentWindowHandle);
             this.ScreenIndex = index;
             this.Current.ShowAll();
+            this.SaveState();
+        }
+
+        private static string StateFileName {
+            get {
+                return Path.Combine(Environment.GetEnvironmentVariable("TEMP"), System.Windows.Forms.Application.ProductName + ".state");
+            }
+        }
+
+        private void SaveState() {
+
+            var source = new StringBuilder();
+            foreach(var s in this) {
+
+                source.Append(s.GetState()).AppendLine();
+            }
+            System.IO.File.WriteAllText(StateFileName, source.ToString());
+        }
+
+        public static void RestoreState() {
+            
+            var source  = System.IO.File.ReadAllText(StateFileName);
+            source      = source.Replace(Environment.NewLine, " ");
+            var handles = source.Split(' ');
+
+            foreach(var handleString in handles) {
+                
+                if(handleString.Trim().Length > 0) {
+
+                    var handle = int.Parse(handleString);
+                    var w      = new Window(new IntPtr(handle));
+
+                    if(w.IsValid())
+                        w.Show();
+                }
+            }
         }
     }
 }
