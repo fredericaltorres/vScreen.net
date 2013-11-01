@@ -230,8 +230,9 @@ namespace vScreen {
             var h = vScreen.lib.WinApi.GetForegroundWindow();
 
             if(h == this.Handle) {
-
-                this._currentWindowHandle = IntPtr.Zero;
+                // We should not zero the value, else we only have 2 second to make the switch
+                // Now we always store/display the last active app which is not vScreen.net
+                // this._currentWindowHandle = IntPtr.Zero;
             }
             else {
 
