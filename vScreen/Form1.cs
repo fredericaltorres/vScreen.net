@@ -249,21 +249,21 @@ namespace vScreen {
                 showAllScreensToolStripMenuItem_Click(null, null);
             }
 
-            if(this._tmrBackground2SecondCounter >= 2) {
+            if(this._tmrBackground2SecondCounter >= 1) {
 
                 this._tmrBackground2SecondCounter = 0;
 
                 if( this._currentWindowHandle == IntPtr.Zero) {
                  
-                    this.lblCurrentApp.Tag            = null;
-                    this.lblCurrentApp.Text           = null;
+                    this.lblCurrentApp.Tag  = null;
+                    this.lblCurrentApp.Text = null;
                 }
                 else {
                     var w  =  new vScreen.lib.Window(this._currentWindowHandle);
                     if(!vScreen.lib.Screen.WindowShouldBeIgnored(w.Title, w.ClassName)) {
                     
-                        this.lblCurrentApp.Tag            = w;
-                        this.lblCurrentApp.Text           = w.Title;
+                        this.lblCurrentApp.Tag  = w;
+                        this.lblCurrentApp.Text = w.Title;
                     }
                 }
             }
