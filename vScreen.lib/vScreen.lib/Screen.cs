@@ -60,7 +60,7 @@ namespace vScreen.lib {
 
         public string GetLabelText() {
 
-            return "{0} Apps".format(this.Keys.Count);
+            return "{0} Apps".FormatString(this.Keys.Count);
         }
 
         public void ShowDesktopImage(int topRef) {
@@ -109,7 +109,7 @@ namespace vScreen.lib {
         public void CaptureDesktopImage() {
 
             this.HideDesktopImage();
-            this.PngFile = Path.Combine(Util.GetAppTempFolder(), "vScreen.Desktop_{0}.png".format(this._index));
+            this.PngFile = Path.Combine(Util.GetAppTempFolder(), "vScreen.Desktop_{0}.png".FormatString(this._index));
             DesktopGrabber.Capture(this.PngFile, DefaultDesktopBitMapWidth);
         }
 

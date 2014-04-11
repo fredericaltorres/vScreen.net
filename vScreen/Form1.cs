@@ -97,7 +97,7 @@ namespace vScreen {
             
             this.ExecuteCommandLine();
 
-            this.Text = "{0}".format(Application.ProductName);
+            this.Text = "{0}".FormatString(Application.ProductName);
 
             vScreen.lib.Screen.AddHandleToIgnore(this.Handle);
 
@@ -155,7 +155,7 @@ namespace vScreen {
 
             _hotkeyManager.Dispose();
 
-            if(vScreen.lib.Util.MsgBoxYesNo("Do you want to close {0}?".format(Application.ProductName))) {
+            if(vScreen.lib.Util.MsgBoxYesNo("Do you want to close {0}?".FormatString(Application.ProductName))) {
 
                 this.ScreenManager.Close();
             }
@@ -190,7 +190,7 @@ namespace vScreen {
                 return;
             }
             this.tmrShowDesktopBitmap.Enabled = true;
-            this.Out("About to show bitpmap for {0}".format(this._indexButtonToShowBitmap));
+            this.Out("About to show bitpmap for {0}".FormatString(this._indexButtonToShowBitmap));
         }
 
         private void butScreen1_MouseLeave(object sender, EventArgs e) {
@@ -199,14 +199,14 @@ namespace vScreen {
                  // Cancel request to show desktop bitmap
                  this._indexButtonToShowBitmap = -1;
                  tmrShowDesktopBitmap.Enabled = false;
-                 this.Out("Canceling showing bitpmap for {0}".format(this._indexButtonToShowBitmap));
+                 this.Out("Canceling showing bitpmap for {0}".FormatString(this._indexButtonToShowBitmap));
              }
              else {
                  // If the bitpmap is already open, close it
                  if( this._indexButtonToShowBitmap != -1) {
                      if(ScreenManager[ this._indexButtonToShowBitmap ].IsDisplayingDesktopBitpmap) {
                          ScreenManager[ this._indexButtonToShowBitmap ].HideDesktopImage();
-                         this.Out("Hiding  bitpmap for {0}".format(this._indexButtonToShowBitmap));
+                         this.Out("Hiding  bitpmap for {0}".FormatString(this._indexButtonToShowBitmap));
                      }
                  }
                  this._indexButtonToShowBitmap = -1; // Cancel request to show desktop bitmp
@@ -220,7 +220,7 @@ namespace vScreen {
             if(this._indexButtonToShowBitmap != -1 && this.ScreenManager[this._indexButtonToShowBitmap].HasDesktopBitmap) {
                 // The user waiting for the desktop bitmap tool tip
                 // Let's show it to him
-                this.Out("Timer Showing bitpmap for {0}".format(this._indexButtonToShowBitmap));
+                this.Out("Timer Showing bitpmap for {0}".FormatString(this._indexButtonToShowBitmap));
                 this.ScreenManager.ShowDesktopBitmap(this._indexButtonToShowBitmap, this.Top);
             }
         }
@@ -277,7 +277,7 @@ namespace vScreen {
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
 
             vScreen.lib.Util.MsgBox(
-                "{0} v {1}\n{2}".format( Application.ProductName, 
+                "{0} v {1}\n{2}".FormatString( Application.ProductName, 
                                     Application.ProductVersion,
                                      vScreen.lib.Util.GetAssemblyCopyright(Assembly.GetExecutingAssembly())));
         }
@@ -292,7 +292,7 @@ namespace vScreen {
 
         private void UpdateClipboardButton() {
 
-            //butClipBoard.Text = "C{0}".format(this._clipboardMonitor.Snapshots.Count);
+            //butClipBoard.Text = "C{0}".FormatString(this._clipboardMonitor.Snapshots.Count);
             butClipBoard.Text = "C";
         }
 

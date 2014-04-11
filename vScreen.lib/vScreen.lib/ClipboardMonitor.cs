@@ -115,7 +115,7 @@ namespace vScreen.lib {
             }
             catch(System.Exception ex) {
                 if(_errorCounter++<3)
-                    Util.MsgBoxError("Equals() {0}".format(ex.ToString()));
+                    Util.MsgBoxError("Equals() {0}".FormatString(ex.ToString()));
                 return false;
             }
         }
@@ -125,7 +125,7 @@ namespace vScreen.lib {
         }
         public override string ToString() {
 
-            return "{0} - {1}".format(this.GetStringTypeInfo(), this.GetTextFirstChars().Replace(Environment.NewLine, " "));
+            return "{0} - {1}".FormatString(this.GetStringTypeInfo(), this.GetTextFirstChars().Replace(Environment.NewLine, " "));
         }
     }
     public class ClipboardMonitor {
@@ -178,7 +178,7 @@ namespace vScreen.lib {
             }
             catch(System.Exception ex) {
                 if(_errorCounter++<3)
-                    Util.MsgBoxError("IsNew() {0}".format(ex.ToString()));
+                    Util.MsgBoxError("IsNew() {0}".FormatString(ex.ToString()));
                 return false;
             }
         }

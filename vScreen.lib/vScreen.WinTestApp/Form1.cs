@@ -25,8 +25,8 @@ namespace vScreen.WinTestApp {
         private void button1_Click(object sender, EventArgs e) {
             
             var w = new Window(this.Handle);
-            this.ShowUser("Left:{0}".format(this.Left));
-            this.ShowUser("ClassName:{0}\r\nText:{1}\r\n`Visible:{2}\r\nLeft:{3}".format(w.ClassName, w.Title, w.Visible, w.Left));
+            this.ShowUser("Left:{0}".FormatString(this.Left));
+            this.ShowUser("ClassName:{0}\r\nText:{1}\r\n`Visible:{2}\r\nLeft:{3}".FormatString(w.ClassName, w.Title, w.Visible, w.Left));
             this.ShowUser(w.ToString());
         }
 

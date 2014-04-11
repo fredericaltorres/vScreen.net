@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamicSugar">
+    <Reference Include="DynamicSugar, Version=0.2.3.0, Culture=neutral, PublicKeyToken=e8dd8df5156875e2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Ref\DynamicSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />

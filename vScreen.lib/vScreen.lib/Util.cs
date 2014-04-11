@@ -39,16 +39,16 @@ namespace vScreen.lib {
         {
             if (message == null)
             {
-                System.Windows.Forms.MessageBox.Show("Error:{0}\r\n{1}".format(ex.Message, ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Error:{0}\r\n{1}".FormatString(ex.Message, ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Error:{0}\r\n{1}".format(message, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error));
+                System.Windows.Forms.MessageBox.Show("Error:{0}\r\n{1}".FormatString(message, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error));
             }
         }
         public static void MsgBoxError(string message)
         {
-            System.Windows.Forms.MessageBox.Show("Error:{0}".format(message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            System.Windows.Forms.MessageBox.Show("Error:{0}".FormatString(message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public static bool MsgBoxYesNo(string message, string title = null)
         {

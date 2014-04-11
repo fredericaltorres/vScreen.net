@@ -49,7 +49,7 @@ namespace vScreen.lib {
                 // Show the error for the first three time, after that give up.
                 // This more for me to be aware of this issue
                 if(++__errorCounter < 32) {
-                    Util.MsgBoxError(ex, "Error capturing screen file:{0}".format(pngFileName));
+                    Util.MsgBoxError(ex, "Error capturing screen file:{0}".FormatString(pngFileName));
                 }
                 var m = ex.ToString();
             }

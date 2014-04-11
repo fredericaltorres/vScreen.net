@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Out\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;AS_STAND_ALONE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,6 +37,9 @@
     <ApplicationIcon>vScreen2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamicSugar">
+      <HintPath>..\vScreen.lib\Ref\DynamicSugar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -50,51 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\DynamicSugarNet\Assert\DSSharp.Assert.cs">
-      <Link>DynamicSugar\DSSharp.Assert.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\Compression\Compression.cs">
-      <Link>DynamicSugar\Compression.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\DSSharp.cs">
-      <Link>DynamicSugar\DSSharp.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\DSSharp.Dictionary.cs">
-      <Link>DynamicSugar\DSSharp.Dictionary.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\DSSharp.List.cs">
-      <Link>DynamicSugar\DSSharp.List.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\DSSharp.Registry.cs">
-      <Link>DynamicSugar\DSSharp.Registry.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\DSSharp.Resources.cs">
-      <Link>DynamicSugar\DSSharp.Resources.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\DynamicObjects\MultiValue.cs">
-      <Link>DynamicSugar\MultiValue.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\ExtendedFormat.cs">
-      <Link>DynamicSugar\ExtendedFormat.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\ExtensionMethods\ExtensionMethods.Dictionary.cs">
-      <Link>DynamicSugar\ExtensionMethods.Dictionary.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\ExtensionMethods\ExtensionMethods.General.cs">
-      <Link>DynamicSugar\ExtensionMethods.General.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\ExtensionMethods\ExtensionMethods.ListOfT.cs">
-      <Link>DynamicSugar\ExtensionMethods.ListOfT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\ExtensionMethods\ExtensionMethods.String.cs">
-      <Link>DynamicSugar\ExtensionMethods.String.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\Generated\FormatValueBasedOnType.cs">
-      <Link>DynamicSugar\FormatValueBasedOnType.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\DynamicSugarNet\Reflection\ReflectionHelper.cs">
-      <Link>DynamicSugar\ReflectionHelper.cs</Link>
-    </Compile>
     <Compile Include="..\vScreen.lib\vScreen.lib\ClipboardMonitor.cs">
       <Link>vScreen.lib\ClipboardMonitor.cs</Link>
     </Compile>
@@ -192,6 +150,7 @@
     <None Include="..\vScreen.lib\vScreen.lib\Settings1.settings">
       <Link>vScreen.lib\Settings1.settings</Link>
     </None>
+    <None Include="Deploy.bat" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
